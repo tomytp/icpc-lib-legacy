@@ -19,8 +19,8 @@ data_structures:
     name: Ordered Set
   - path: sparse_table.cpp
     name: Sparse Table
-  - path: unionfind.cpp
-    name: Unionfind
+  - path: union_find.cpp
+    name: Union Find
 misc:
   name: Misc
   path: misc
