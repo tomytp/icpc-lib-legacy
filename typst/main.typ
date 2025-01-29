@@ -1,7 +1,4 @@
-#import "template.typ": *
-#import "algorithms.typ": *
-#import "data-structures.typ": *
-#import "math.typ": *
+#import "utils.typ": *
 #import "ideias.typ" as ideais
 
 #show: project.with(
@@ -14,11 +11,8 @@ authors: ("Thomaz Miranda", "Miguel Batista", "João Arthur Marques"),
   indent: 15pt
 )
 
-
 #section-break
 = Informações Importantes
-#import-code("src/template.cpp")
-#colbreak()
 #complexity-table
 
 #section-break
@@ -27,17 +21,7 @@ authors: ("Thomaz Miranda", "Miguel Batista", "João Arthur Marques"),
 = Ideias de DP
 #ideais.dp
 
+#pagebreak()
 
-#section-break
-= Data Structures
-#ds-section
-
-
-#section-break
-= Algorithms 
-#algo-section
-
-
-#section-break
-= Mathematics
-#math-section
+#let structure = yaml.decode(read("structure.yaml"))
+#process-structure(structure)

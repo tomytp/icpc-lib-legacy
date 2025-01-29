@@ -1,3 +1,4 @@
+
 #let project(
   title: "",
   authors: (),
@@ -73,3 +74,50 @@
 
 // Section break that works with columns
 #let section-break = pagebreak(weak: true)
+
+
+// Function to import files from a section
+#let import-files(path, files) = {
+  for file in files {
+    heading(level: 3, file.name)
+    import-code("src/" + path + "/" + file.path)
+    v(1em)
+  }
+}
+
+// Function to process a directory structure recursively
+#let process-structure(structure, current-path: "") = {
+  // Handle root files first if they exist
+  if "root_files" in structure {
+    for file in structure.root_files {
+      heading(level: 1, file.name)
+      import-code("src/" + file.path)
+      v(1em)
+    }
+  }
+  
+  // Process subdirectories
+  for (dir-name, content) in structure {
+    if dir-name != "root_files" {
+      let path = if current-path == "" {
+        content.path
+      } else {
+        current-path + "/" + content.path
+      }
+      
+      heading(level: 1, content.name)
+      
+      // Import files in this directory
+      if "files" in content {
+        import-files(path, content.files)
+      }
+      
+      // Recursively process subdirectories
+      for (subdir, subcontent) in content {
+        if not (subdir in ("files", "name", "path")) {
+          process-structure((subdir: subcontent), current-path: path)
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+root_files:
+- path: template.cpp
+  name: Template
+math:
+  name: Math
+  path: math
+  files:
+  - path: sieve.cpp
+    name: Sieve
+data_structures:
+  name: Data Structures
+  path: data_structures
+  files:
+  - path: segtree.cpp
+    name: Segtree
+  - path: treap.cpp
+    name: Treap
+  - path: ordered_set.cpp
+    name: Ordered Set
+  - path: sparse_table.cpp
+    name: Sparse Table
+  - path: unionfind.cpp
+    name: Unionfind
+misc:
+  name: Misc
+  path: misc
+  files:
+  - path: binary_search.cpp
+    name: Binary Search
+graphs:
+  name: Graphs
+  path: graphs
+  files:
+  - path: dinitz.cpp
+    name: Dinitz
+  - path: sparse_dijkstra.cpp
+    name: Sparse Dijkstra
+  - path: dense_dijkstra.cpp
+    name: Dense Dijkstra
