@@ -1,29 +1,29 @@
 struct dinitz {
 	const bool scaling = true;
-	int lim;
+	ll lim;
 	struct edge {
-		int to, cap, rev, flow;
+		ll to, cap, rev, flow;
 		bool res;
-		edge(int to_, int cap_, int rev_, bool res_)
+		edge(ll to_, ll cap_, ll rev_, bool res_)
 			: to(to_), cap(cap_), rev(rev_), flow(0), res(res_) {}
 	};
 
 	vector<vector<edge>> g;
-	vector<int> lev, beg;
+	vector<ll> lev, beg;
 	ll F;
-	dinitz(int n) : g(n), F(0) {}
+	dinitz(ll n) : g(n), F(0) {}
 
-	void add(int a, int b, int c) {
+	void add(ll a, ll b, ll c) {
 		g[a].emplace_back(b, c, g[b].size(), false);
 		g[b].emplace_back(a, 0, g[a].size()-1, true);
 	}
 
-	bool bfs(int s, int t) {
-		lev = vector<int>(g.size(), -1); lev[s] = 0;
-		beg = vector<int>(g.size(), 0);
-		queue<int> q; q.push(s);
+	bool bfs(ll s, ll t) {
+		lev = vector<ll>(g.size(), -1); lev[s] = 0;
+		beg = vector<ll>(g.size(), 0);
+		queue<ll> q; q.push(s);
 		while (q.size()) {
-			int u = q.front(); q.pop();
+			ll u = q.front(); q.pop();
 			for (auto& i : g[u]) {
 				if (lev[i.to] != -1 or (i.flow == i.cap)) continue;
 				if (scaling and i.cap - i.flow < lim) continue;
@@ -34,12 +34,12 @@ struct dinitz {
 		return lev[t] != -1;
 	}
 
-	int dfs(int v, int s, int f = INF) {
+	ll dfs(ll v, ll s, ll f = INF) {
 		if (!f or v == s) return f;
-		for (int& i = beg[v]; i < g[v].size(); i++) {
+		for (ll& i = beg[v]; i < g[v].size(); i++) {
 			auto& e = g[v][i];
 			if (lev[e.to] != lev[v] + 1) continue;
-			int foi = dfs(e.to, s, min(f, e.cap - e.flow));
+			ll foi = dfs(e.to, s, min(f, e.cap - e.flow));
 			if (!foi) continue;
 			e.flow += foi, g[e.to][e.rev].flow -= foi;
 			return foi;
@@ -47,9 +47,9 @@ struct dinitz {
 		return 0;
 	}
 
-	ll max_flow(int s, int t) {
+	ll max_flow(ll s, ll t) {
 		for (lim = scaling ? (1<<30) : 1; lim; lim /= 2)
-			while (bfs(s, t)) while (int ff = dfs(s, t)) F += ff;
+			while (bfs(s, t)) while (ll ff = dfs(s, t)) F += ff;
 		return F;
 	}
 
