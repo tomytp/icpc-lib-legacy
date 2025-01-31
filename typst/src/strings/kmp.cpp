@@ -1,6 +1,6 @@
 v64 pi(string& s) {
 	v64 p(s.size());
-	for (int i = 1, j = 0; i < s.size(); i++) {
+	for (ll i = 1, j = 0; i < (ll) s.size(); i++) {
 		while (j and s[j] != s[i]) j = p[j-1];
 		if (s[j] == s[i]) j++;
 		p[i] = j;
@@ -8,12 +8,12 @@ v64 pi(string& s) {
 	return p;
 }
 
-v64 match(string& s, string& t) {
-	v64 p = pi(s), match;
-	for (int i = 0, j = 0; i < t.size(); i++) {
-		while (j and s[j] != t[i]) j = p[j-1];
-		if (s[j] == t[i]) j++;
-		if (j == s.size()) match.push_back(i-j+1), j = p[j-1];
+v64 match(string& pat, string& s) {
+	v64 p = pi(pat), match;
+	for (ll i = 0, j = 0; i < (ll) s.size(); i++) {
+		while (j and pat[j] != s[i]) j = p[j-1];
+		if (pat[j] == s[i]) j++;
+		if (j == pat.size()) match.push_back(i-j+1), j = p[j-1];
 	}
 	return match;
 }
