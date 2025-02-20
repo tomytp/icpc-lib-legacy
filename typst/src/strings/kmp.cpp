@@ -17,7 +17,7 @@ v64 match(string& pat, string& s) {
 	}
 	return match;
 }
-
+	
 struct KMPaut : vector<v64> {
 	KMPaut(){}
 	KMPaut (string& s) : vector<v64>(26, v64(s.size()+1)) {
