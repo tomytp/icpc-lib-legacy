@@ -122,7 +122,7 @@ def main():
         'create': manager.handle_create_action
     }
     
-    action_handlers[args.action](args.query, BASE_FOLDER)
+    action_handlers[args.action](args.query, manager.src_folder)
 
 if __name__ == "__main__":
     main()
