@@ -9,10 +9,10 @@ typedef vector<ll> v64;
 #define ln "\n"
 
 #if defined(DEBUG) || defined(debug)
-    #define _ ios_base::sync_with_stdio(false), cin.tie(NULL)
+    #define _ (void)0
     #define debug(x) cout << __LINE__ << ": " << #x << " = " << x << ln
 #else
-    #define _ (void)0
+    #define _ ios_base::sync_with_stdio(false), cin.tie(NULL)
     #define debug(x) (void)0
 #endif
 
