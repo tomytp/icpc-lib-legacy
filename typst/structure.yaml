@@ -21,6 +21,8 @@ data_structures:
     name: Sparse Table
   - path: union_find.cpp
     name: Union Find
+  - path: fenwick_tree.cpp
+    name: Fenwick Tree
 misc:
   name: Misc
   path: misc
@@ -37,3 +39,19 @@ graphs:
     name: Sparse Dijkstra
   - path: dense_dijkstra.cpp
     name: Dense Dijkstra
+strings:
+  name: Strings
+  path: strings
+  files:
+  - path: trie.cpp
+    name: Trie
+  - path: kmp.cpp
+    name: Kmp
+extra:
+  name: Extra
+  path: extra
+  files:
+  - path: random.cpp
+    name: Random
+  - path: stress.sh
+    name: Stresstest
