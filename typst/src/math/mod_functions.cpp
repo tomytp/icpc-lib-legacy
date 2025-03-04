@@ -1,4 +1,4 @@
-#define MOD 1'000'000'007
+const ll MOD = 1'000'000'007;
 
 ll mult(ll a, ll b){
     return ((a%MOD)*(b%MOD))%MOD;
