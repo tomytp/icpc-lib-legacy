@@ -6,7 +6,7 @@
   [Fluxos],
   [E se a gente refizer removendo o item especial?],
   [E se a gente fizer o problema de tras pra frente],
-  [O problema e uma quantidade entre [a,b],podemos reduzir pra <=b]
+  [O problema é uma quantidade entre [a,b],podemos reduzir pra <=b]
 )
 
 #let dp = list(

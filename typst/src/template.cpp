@@ -8,7 +8,7 @@ typedef vector<ll> v64;
 #define forn(i, s, e) for(ll i = (s); i < (e); i++)
 #define ln "\n"
 
-#if defined(DEBUG) || defined(debug)
+#if defined(DEBUG)
     #define _ (void)0
     #define debug(x) cout << __LINE__ << ": " << #x << " = " << x << ln
 #else
