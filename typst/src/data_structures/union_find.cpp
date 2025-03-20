@@ -1,25 +1,14 @@
-ll parent[MAXN]; //Inicializar parent[i] = i
-ll sz[MAXN];
+struct dsu {
+	vector<int> id, sz;
 
-ll find(ll x){
-    ll pai = x;
-    ll filho = x;
-    ll aux;
-    while( pai != parent[pai] ) pai = parent[pai];
-    while( filho != parent[filho] ) {
-        aux = parent[filho];
-        parent[filho] = pai;
-        filho = aux;
-    }
-    return pai;
-}
-  
-void uni(ll x, ll y){
-    ll rx = find(x);
-    ll ry = find(y);
-    if(rx == ry) return;
-    if( sz[rx] < sz[ry]) swap(rx,ry);
-    parent[ry] = rx;
-    sz[rx] += sz[ry]; 
-    return;
-}
+	dsu(int n) : id(n), sz(n, 1) { iota(id.begin(), id.end(), 0); }
+
+	int find(int a) { return a == id[a] ? a : id[a] = find(id[a]); }
+
+	void unite(int a, int b) {
+		a = find(a), b = find(b);
+		if (a == b) return;
+		if (sz[a] < sz[b]) swap(a, b);
+		sz[a] += sz[b], id[b] = a;
+	}
+};
