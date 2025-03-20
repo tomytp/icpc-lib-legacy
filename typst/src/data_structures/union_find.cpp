@@ -5,7 +5,7 @@ struct dsu {
 
 	ll find(ll a) { return a == id[a] ? a : id[a] = find(id[a]); }
 
-	void unite(ll a, ll b) {
+	void uni(ll a, ll b) {
 		a = find(a), b = find(b);
 		if (a == b) return;
 		if (sz[a] < sz[b]) swap(a, b);
