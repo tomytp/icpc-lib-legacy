@@ -1,54 +1,40 @@
-#define LC nd * 2 + 1
-#define RC nd * 2 + 2
+template<typename T, T (*comb)(T, T), T neutral>
+struct node {
+    ll lm, rm;
+    unique_ptr<node> l_child, r_child;
+    T val = 0;
 
-const T NEUTRAL = node_neutro;
-
-struct SegTree {
-  vector < T > tree;
-  ll n;
-  T op(const T & a,
-    const T & b) {
-    return a + b;
-  }
-
-  SegTree(const vector < T > & v): n(v.size()) {
-    tree.resize(4 * n);
-    _build(v, 0, 0, n - 1);
-  }
-  void update(ll idx,
-    const T & val) {
-    _update(idx, val, 0, 0, n - 1);
-  }
-
-  T query(ll l, ll r) {
-    return _query(l, r, 0, 0, n - 1);
-  }
-  void _build(const vector < T > & v, ll nd, ll st, ll ed) {
-    if (st == ed) {
-      tree[nd] = v[st];
-    } else {
-      ll mid = (st + ed) / 2;
-      _build(v, LC, st, mid);
-      _build(v, RC, mid + 1, ed);
-      tree[nd] = op(tree[LC], tree[RC]);
+    node(ll lm_, ll rm_, vector<T>& v) : lm(lm_), rm(rm_), l_child(nullptr), r_child(nullptr) {
+        if (lm == rm) {
+            val = v[lm];
+        } else {
+            ll mid = (lm + rm) / 2;
+            l_child = make_unique<node>(lm, mid, v);
+            r_child = make_unique<node>(mid+1, rm, v);
+            calc();
+        }
     }
-  }
-  void _update(ll idx,
-    const T & val, ll nd, ll st, ll ed) {
-    if (st == ed) tree[nd] = val;
-    else {
-      ll mid = (st + ed) / 2;
-      if (idx <= mid) _update(idx, val, LC, st, mid);
-      else _update(idx, val, RC, mid + 1, ed);
-      tree[nd] = op(tree[LC], tree[RC]);
+
+    void calc() {
+        if (lm == rm) return;
+        val = comb(l_child->val, r_child->val);
     }
-  }
-  T _query(ll l, ll r, ll nd, ll st, ll ed) {
-    if (r < st || ed < l) return NEUTRAL;
-    if (l <= st && ed <= r) return tree[nd];
-    ll mid = (st + ed) / 2;
-    T left = _query(l, r, LC, st, mid);
-    T right = _query(l, r, RC, mid + 1, ed);
-    return op(left, right);
-  }
+
+
+    void point_update(ll idx, ll n_val) {
+        if (lm == rm) {
+            val = n_val;
+            return;
+        }
+
+        if (idx <= l_child->rm) l_child->point_update(idx, n_val);
+        else r_child->point_update(idx, n_val);
+        calc();
+    }
+
+    ll rq(ll l, ll r) {
+        if (l > rm || r < lm) return neutral;
+        if (l <= lm && r >= rm) return val;
+        return comb(l_child->rq(l, r), r_child->rq(l, r));
+    }
 };
