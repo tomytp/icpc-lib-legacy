@@ -1,6 +1,6 @@
 ll m[MAXN][MAXLOGN];
 
-void build(vector<long long>& v) {
+void build(v64& v) {
     ll sz = v.size();
     
     forn(i, 0, sz) {

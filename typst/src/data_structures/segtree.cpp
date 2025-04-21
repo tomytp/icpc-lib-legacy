@@ -1,40 +1,43 @@
-template<typename T, T (*comb)(T, T), T neutral>
+template<typename T>
 struct node {
     ll lm, rm;
-    unique_ptr<node> l_child, r_child;
-    T val = 0;
+    unique_ptr<node> lc, rc;
+    T val;
 
-    node(ll lm_, ll rm_, vector<T>& v) : lm(lm_), rm(rm_), l_child(nullptr), r_child(nullptr) {
+    static constexpr T neutral = T(); // Customize this for min/max/gcd/etc.
+
+    node(ll l_, ll r_, const vector<T>& v) : lm(l_), rm(r_) {
         if (lm == rm) {
             val = v[lm];
         } else {
-            ll mid = (lm + rm) / 2;
-            l_child = make_unique<node>(lm, mid, v);
-            r_child = make_unique<node>(mid+1, rm, v);
-            calc();
+            ll m = (lm + rm) / 2;
+            lc = make_unique<node>(lm, m, v);
+            rc = make_unique<node>(m + 1, rm, v);
+            pull();
         }
     }
 
-    void calc() {
-        if (lm == rm) return;
-        val = comb(l_child->val, r_child->val);
+    static T comb(const T& a, const T& b) {
+        return a + b; // Change to min/max/gcd as needed
     }
 
+    void pull() {
+        val = comb(lc->val, rc->val);
+    }
 
-    void point_update(ll idx, ll n_val) {
+    void point_set(ll idx, T x) {
         if (lm == rm) {
-            val = n_val;
+            val = x;
             return;
         }
-
-        if (idx <= l_child->rm) l_child->point_update(idx, n_val);
-        else r_child->point_update(idx, n_val);
-        calc();
+        if (idx <= lc->rm) lc->point_set(idx, x);
+        else rc->point_set(idx, x);
+        pull();
     }
 
-    ll rq(ll l, ll r) {
-        if (l > rm || r < lm) return neutral;
-        if (l <= lm && r >= rm) return val;
-        return comb(l_child->rq(l, r), r_child->rq(l, r));
+    T query(ll lq, ll rq) {
+        if (rq < lm || lq > rm) return neutral;
+        if (lq <= lm && rm <= rq) return val;
+        return comb(lc->query(lq, rq), rc->query(lq, rq));
     }
 };
