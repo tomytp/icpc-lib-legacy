@@ -1,7 +1,17 @@
 #include <bits/extc++.h> 
 
+// for ll
 struct chash {
 	const uint64_t C = ll(4e18 * acos(0)) | 71;
 	ll operator()(ll x) const { return __builtin_bswap64(x*C); }
 };
+
+// for p64
+struct chash {
+    size_t operator()(const p64& p) const {
+        return p.first ^ __builtin_bswap64(p.second);
+    }
+};
+
 __gnu_pbds::gp_hash_table<ll, ll, chash> h({},{},{},{},{1<<16});
+__gnu_pbds::gp_hash_table<ll, p64, chash> h({},{},{},{},{1<<16});
