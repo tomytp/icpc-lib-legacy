@@ -14,4 +14,4 @@ struct chash {
 };
 
 __gnu_pbds::gp_hash_table<ll, ll, chash> h({},{},{},{},{1<<16});
-__gnu_pbds::gp_hash_table<ll, p64, chash> h({},{},{},{},{1<<16});
+__gnu_pbds::gp_hash_table<p64, ll, chash> h({},{},{},{},{1<<16});
