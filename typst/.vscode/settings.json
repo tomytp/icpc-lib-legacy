@@ -90,6 +90,8 @@
         "stdexcept": "cpp",
         "stdfloat": "cpp",
         "typeindex": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "rope": "cpp",
+        "slist": "cpp"
     }
 }
