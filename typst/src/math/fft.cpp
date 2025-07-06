@@ -5,6 +5,16 @@
 //
 // O(n log(n))
 
+// Para FFT
+void get_roots(bool f, int n, vector<complex<double>>& roots) {
+	const static double PI = acosl(-1);
+	for (int i = 0; i < n/2; i++) {
+		double alpha = i*((2*PI)/n);
+		if (f) alpha = -alpha;
+		roots[i] = {cos(alpha), sin(alpha)};
+	}
+}
+
 // Para NTT
 template<int p>
 void get_roots(bool f, int n, vector<mod_int<p>>& roots) {
