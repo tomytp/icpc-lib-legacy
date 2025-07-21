@@ -15,7 +15,7 @@ struct Line {
 	bool operator<(ll x) const { return p < x; }
 };
 
-struct dynamic_hull : multiset<Line, less<>> {
+struct CHT : multiset<Line, less<>> {
 	ll div(ll a, ll b) { 
 		return a / b - ((a ^ b) < 0 and a % b);
 	}
