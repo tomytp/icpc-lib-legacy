@@ -1,3 +1,9 @@
+// Custom Hash for gp_hash_table
+//
+// Provides 64-bit hashers for integers and pairs to use with __gnu_pbds::gp_hash_table.
+//
+// complexity: O(1) average, O(n)
+
 #include <bits/extc++.h> 
 
 // for ll

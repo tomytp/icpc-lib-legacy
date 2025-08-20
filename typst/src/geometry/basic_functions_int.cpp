@@ -1,3 +1,7 @@
+// Integer Geometry Primitives
+//
+// Defines 2D point and line structures with orientation, area, and angle comparisons plus a sweep-line comparator.
+
 struct pt { // ponto
 	ll x, y;
 	pt(ll x_ = 0, ll y_ = 0) : x(x_), y(y_) {}

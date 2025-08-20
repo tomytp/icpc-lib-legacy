@@ -1,3 +1,9 @@
+// Segment Tree (Range Query + Point Update)
+//
+// Balanced binary tree for range queries with a customizable combine; supports point updates and range queries.
+//
+// complexity: O(log N) per op, O(N)
+
 template<typename T>
 struct node {
     ll lm, rm;

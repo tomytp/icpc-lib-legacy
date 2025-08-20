@@ -1,3 +1,9 @@
+// Fenwick Tree (Binary Indexed Tree)
+//
+// Supports point updates and prefix/range sum queries in logarithmic time using a 1-indexed BIT.
+//
+// complexity: O(log N) per op, O(N)
+
 struct Bit {
 	ll n;
 	v64 bit;

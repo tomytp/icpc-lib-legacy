@@ -1,3 +1,9 @@
+// Binary Search Helpers
+//
+// Template functions to find first or last index satisfying a monotonic predicate over a sorted search space.
+//
+// complexity: O(log N), O(1)
+
 ll find_last_valid(ll val) {
     ll left = 0;
     ll right = n - 1;

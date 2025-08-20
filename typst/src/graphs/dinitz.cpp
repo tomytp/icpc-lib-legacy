@@ -1,3 +1,9 @@
+// Dinic's Maximum Flow (with Scaling)
+//
+// Computes max flow using Dinic's algorithm with optional capacity scaling to speed up BFS levels.
+//
+// complexity: O(E V^2) worst-case, O(E)
+
 struct dinitz {
 	const bool scaling = true;
 	ll lim;

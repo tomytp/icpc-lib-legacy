@@ -1,3 +1,9 @@
+// Rollback Segment Tree (Min)
+//
+// Segment tree supporting range min with versioned updates via a change log enabling O(1) rollback per change.
+//
+// complexity: O(log N) per update/query, O(N + U)
+
 struct node {
     ll lm, rm;
     ll mn;

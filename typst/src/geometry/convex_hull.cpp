@@ -1,3 +1,8 @@
+// Convex Hull (Monotone Chain)
+//
+// Computes the convex hull of a set of points using Andrew's monotone chain; handles collinear points based on ccw condition.
+//
+// complexity: O(N log N), O(N)
 
 // se contar pontos colineares, faz o ccw com >=
 bool ccw(pt p, pt q, pt r) { // se p, q, r sao ccw

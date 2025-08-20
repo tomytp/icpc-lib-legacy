@@ -1,3 +1,9 @@
+// Bridge Detection (Tarjan)
+//
+// Finds all bridges in an undirected graph via DFS timestamps and low-link values.
+//
+// complexity: O(N + M), O(N + M)
+
 vector<v64> g;
 vector<bool> visited;
 vector<ll> tin, low;

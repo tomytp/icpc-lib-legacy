@@ -1,3 +1,9 @@
+// Disjoint Set Union (Union-Find)
+//
+// Supports find with path compression and union by size to maintain dynamic connectivity of disjoint sets.
+//
+// complexity: O(alpha(N)) amortized per op, O(N)
+
 struct dsu {
 	vector<ll> id, sz;
 

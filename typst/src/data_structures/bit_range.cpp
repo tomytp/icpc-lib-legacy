@@ -1,13 +1,8 @@
-// BIT com update em range
+// Fenwick Tree with Range Updates
 //
-// Operacoes 0-based
-// query(l, r) retorna a soma de v[l..r]
-// update(l, r, x) soma x em v[l..r]
+// Implements a pair of BITs to support 0-based range add updates and range sum queries efficiently.
 //
-// Complexidades:
-// build - O(n)
-// query - O(log(n))
-// update - O(log(n))
+// complexity: O(log N) per op, O(N)
 
 class BIT{
 	ll bit[2][MAX+2];

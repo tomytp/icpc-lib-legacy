@@ -1,15 +1,8 @@
-// Aho-corasick 
+// Aho–Corasick Automaton
 //
-// query retorna o somatorio do numero de matches de
-// todas as stringuinhas na stringona
+// Builds a trie with failure links for multi-pattern matching; insert is O(|s|), build is linear in total length, and queries run in linear time in the text.
 //
-// insert - O(|s| log(SIGMA))
-// build - O(N), onde N = somatorio dos tamanhos das strings
-// query - O(|s|)
-
-// ao criar algum valor nas casas do automato, usar insert para inserir casos triviais
-// e usar a build para espallhar pelos vertices usando o link
-// assim em qualquer outro momento, a consulta desses valores é O(1)
+// complexity: varies, O(total patterns length)
 
 namespace aho {
 	map<char, ll> to[MAX];

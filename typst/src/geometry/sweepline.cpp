@@ -1,3 +1,7 @@
+// Segment Sweep Line Skeleton
+//
+// Maintains an active set of segments ordered for sweep-line processing over x; insertion and removal are typically logarithmic.
+
 // observacoes sobre sweepline em segmentos:
 // tomar cuidado com segmentos verticais se a sweepline e em x, nesse caso devemos ignorar esses casos sera que podemos fazer isso em outros problemas
 // tomar cuidado para nao usar funcoes da biblioteca em lugares errados...

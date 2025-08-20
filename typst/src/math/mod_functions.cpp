@@ -1,3 +1,9 @@
+// Modular Arithmetic Helpers
+//
+// Provides modular add/sub/mul, fast exponentiation, and modular inverse under fixed MOD.
+//
+// complexity: O(log E) for power/inverse, O(1)
+
 const ll MOD = 1'000'000'007;
 
 inline ll sum(ll a, ll b) { a += b; if (a >= MOD) a -= MOD; return a; }

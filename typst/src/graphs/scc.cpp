@@ -1,3 +1,9 @@
+// Strongly Connected Components (Kosaraju)
+//
+// Computes SCCs using two DFS passes and builds the condensation graph.
+//
+// complexity: O(N + M), O(N + M)
+
 vector<bool> visited;
 
 void dfs(ll v, vector<v64>& g, vector<ll> &out) {

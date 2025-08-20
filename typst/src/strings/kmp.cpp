@@ -1,3 +1,9 @@
+// Knuth–Morris–Pratt (KMP)
+//
+// Computes prefix function and performs linear-time substring search with optional automaton construction.
+//
+// complexity: O(n + m), O(n)
+
 v64 pi(string& s) {
 	v64 p(s.size());
 	for (ll i = 1, j = 0; i < (ll) s.size(); i++) {

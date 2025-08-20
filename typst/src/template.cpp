@@ -1,3 +1,7 @@
+// Template Skeleton
+//
+// Sets up fast I/O, aliases, and basic macros for contests.
+
 #include <bits/stdc++.h>
 using namespace std;
 

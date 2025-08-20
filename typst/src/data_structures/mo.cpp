@@ -1,9 +1,8 @@
-// MO
+// Mo's Algorithm (Offline Range Queries)
 //
-// Para ter o bound abaixo, escolher
-// SQ = n / sqrt(q)
-// 
-// O(n * sqrt(q))
+// Answers offline range queries by ordering them (block or Hilbert curve) to get small pointer movement and amortized updates.
+//
+// complexity: O((N + Q) sqrt N), O(N)
 
 const ll MAX = 2e5+10;
 const ll SQ = sqrt(MAX);

@@ -1,3 +1,9 @@
+// Implicit Treap (Sequence Treap)
+//
+// Maintains a sequence with split and merge operations using randomized priorities and subtree sizes.
+//
+// complexity: O(log N) expected per op, O(N)
+
 struct Treap{
     ll val;
     ll prio, size;

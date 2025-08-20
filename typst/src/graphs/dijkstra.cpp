@@ -1,3 +1,9 @@
+// Dijkstra's Shortest Paths
+//
+// Computes single-source shortest paths on non-negative weighted graphs using a priority queue.
+//
+// complexity: O((N + M) log N), O(N + M)
+
 vector<vector<p64>> g;
 
 // d = distance | p = from/path

@@ -1,9 +1,8 @@
-// Divide and Conquer DP
+// Divide and Conquer DP Optimization
 //
-// Particiona o array em k subarrays
-// minimizando o somatorio das queries
+// Optimizes DP transitions with quadrangle inequality/monge-like structure using divide-and-conquer over optimal decision points.
 //
-// O(k n log n), assumindo quer cost(l, r) eh O(1)
+// complexity: O(K N log N) with O(1) cost, O(N)
 
 vector<v64> dp; // dp[n+1][2]
 

@@ -1,8 +1,10 @@
-const ll MOD = 998244353;
-
-// Aritmetica Modular
+// Modular Integer (mod_int)
 //
-// O mod tem q ser primo
+// Fixed-modulus integer type with +, -, *, /, and exponentiation; modulo should be prime for division via Fermat.
+//
+// complexity: O(1) per arithmetic op (O(log E) for exponentiation), O(1)
+
+const ll MOD = 998244353;
 
 template<int p> struct mod_int {
 	ll expo(ll b, ll e) {

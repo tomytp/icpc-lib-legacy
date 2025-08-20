@@ -1,3 +1,9 @@
+// Order-Statistic Tree (PBDS)
+//
+// Wraps __gnu_pbds tree to support order_of_key and find_by_order operations on a sorted set.
+//
+// complexity: O(log N) per op, O(N)
+
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 

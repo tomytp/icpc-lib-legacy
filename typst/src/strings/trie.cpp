@@ -1,3 +1,9 @@
+// Trie (Prefix Tree)
+//
+// Stores strings over a fixed alphabet to support insert, erase, and prefix counting in linear time.
+//
+// complexity: O(|s|) per op, O(total keys)
+
 struct trie {
 	vector<v64> to;
 	v64 end, pref;

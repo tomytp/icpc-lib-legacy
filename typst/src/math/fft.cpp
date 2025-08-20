@@ -1,9 +1,8 @@
-// FFT
+// FFT/NTT Convolution
 //
-// Chamar convolution com vector<complex<double>> para FFT
-// Precisa do mint para NTT
+// Implements iterative FFT over complex numbers and NTT over supported primes; provides convolution utility.
 //
-// O(n log(n))
+// complexity: O(N log N), O(N)
 
 // Para FFT
 void get_roots(bool f, int n, vector<complex<double>>& roots) {
@@ -83,7 +82,8 @@ template<typename T> vector<T> convolution(vector<T>& a, vector<T>& b) {
 }
 
 // NTT
-template<int p, typename T> vector<mod_int<p>> ntt(vector<T>& a, vector<T>& b) {
+template<int p, typename T> 
+vector<mod_int<p>> ntt(vector<T>& a, vector<T>& b) {
 	vector<mod_int<p>> A(a.begin(), a.end()), B(b.begin(), b.end());
 	return convolution(A, B);
 }

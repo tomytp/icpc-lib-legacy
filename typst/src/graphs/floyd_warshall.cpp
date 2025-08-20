@@ -1,13 +1,8 @@
-// Floyd-Warshall
+// Floyd–Warshall Algorithm
 //
-// encontra o menor caminho entre todo
-// par de vertices e detecta ciclo negativo
-// returna 1 sse ha ciclo negativo
-// d[i][i] deve ser 0
-// para i != j, d[i][j] deve ser w se ha uma aresta
-// (i, j) de peso w, INF caso contrario
+// Computes all-pairs shortest paths and detects negative cycles using dynamic programming over path lengths.
 //
-// O(n^3)
+// complexity: O(N^3), O(N^2)
 
 ll n;
 ll d[MAX][MAX];

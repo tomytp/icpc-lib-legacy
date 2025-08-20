@@ -1,3 +1,9 @@
+// Segment Tree with Lazy Propagation (Add/Set)
+//
+// Supports range add and range set updates with lazy propagation and range queries using a composable lazy state.
+//
+// complexity: O(log N) per op, O(N)
+
 template<typename T>
 struct node {
     ll lm, rm;
